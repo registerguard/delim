@@ -1,0 +1,90 @@
+<script language="cache" runat="server">
+	new video set video = $zstrip($get(%request.Data("v", 1)), "<>W")
+</script>
+
+<custom:rg:parse:delim:string string="#(video)#" parentDelim="#($char(10))#" childDelim="|" order="desc" value="item" key="loop">
+	
+	<csp:if condition=(item.IsDefined(1))>
+		
+		<csp:if condition='$find(item.GetAt(1), "registerguard.com")'>
+			
+			<csp:comment> registerguard.com videos </csp:comment>
+			
+			<script language="cache" runat="server">
+				
+				new w, h, v, p
+				
+				set w = $get(%request.Data("w", 1), 610) // Defaults to 480px wide.
+				set h = $get(%request.Data("h", 1), 373) // Defaults to 373px high.
+				set v = $zstrip(item.GetAt(1), "<>W")
+				set p = $replace(v, $reverse($piece($reverse(v), ".")), "jpg") // There HAS to be a better way to remove/replace the file ext. :D
+				
+			</script>
+			
+			<div class="loading" style="height:#(h)#px;"><div id="video#(loop)#"></div></div>
+			<script type="text/javascript">
+				<!--
+					
+					var flashvars = {
+						image:          '#(p)#',
+						file:           '#(v)#',
+						playlist:       'none',
+						autostart:      'false',
+						dock:           'true',
+						frontcolor:     'ffffff',
+						stretching:     'uniform',
+						lightcolor:     '009999',
+						controlbar:     'over',
+						displayclick:   'play',
+						backcolor:      '000000',
+						'skin':           'http://content.bitsontherun.com/skins/VFgGj89b.swf',
+					};
+					var params = {
+						scale: 'noscale',
+						allowFullScreen: 'true',
+						allowscriptaccess: 'always',
+						menu: 'false',
+						bgcolor: '#000000'
+					};
+					var attributes = {
+						id: 'video_player_#(loop)#',
+						name: 'video_player_#(loop)#',
+						styleclass: 'center'
+					};
+					swfobject.embedSWF('http://www3.registerguard.com/hosted/jwplayer/5.5/player.swf', 'video#(loop)#', '#(w)#', '#(h)#', '9', false, flashvars, params, attributes);
+					
+				//-->
+			</script>
+			
+			<csp:if condition=(item.IsDefined(2))>
+				<div style="width:#(w)#px;margin:0 auto;"><div class="caption">#($zstrip(item.GetAt(2), "<>W"))#</div></div>
+			</csp:if>
+			
+			#[ kill w, h, v, p ]#
+			
+		</csp:if>
+		
+		<csp:if condition='$find(item.GetAt(1), "youtube.com")'>
+			
+			<csp:comment> youtube.com videos </csp:comment>
+			
+			<div class="loading" style="height:373px;"><iframe class="youtube-player" type="text/html" width="610" height="373" src="http://www.youtube.com/embed/#($piece($zstrip(item.GetAt(1), "<>W"), "=", 2))#?hd=1" frameborder="0"></iframe></div>
+			
+			<csp:if condition=(item.IsDefined(2))>
+				<div class="caption">#($zstrip(item.GetAt(2), "<>W"))#</div>
+			</csp:if>
+			
+		</csp:if>
+		
+		<csp:if condition=(loop'=total)>
+			<div class="horizRule"></div>
+			<hr>
+		</csp:if>
+		
+	</csp:if>
+	
+</custom:rg:parse:delim:string>
+
+<script language="cache" runat="server">
+	kill video
+</script>

@@ -1,6 +1,10 @@
 # Parse delim string
 
-### ...
+### Caché RULE & class used to parse delimited strings.
+
+---
+
+		  Author: Micky Hulse		 Created: 02/05/09		Modified: 2011/02/09		   About: ...		Examples:		          set string = "count.0122:Description: 01 goes: here|paperwhite.121808:Description 02 goes here|french_confection:Description 03 goes here"		          set parent = "|"		          set child = ":"		          <h1>Parsing delimited string with two delimeters:</h1>		          <custom:rg:parse:delim:string string="#(string)#" child="#(child)#" parent="#(parent)#" order="desc" value="foo" key="bar">		          <p>Item #(bar)#/#(total)#</p>		          <ul>		          <li>#(bar)#</li>		          <csp:while counter="i" condition=(i<foo.Count())>		          <li>#(foo.GetAt(i))#</li>		          </csp:while>		          </ul>		          </custom:rg:parse:delim:string>		          <hr>		          <h1>Not specifying child delimiter:</h1>		          <custom:rg:parse:delim:string string="#(string)#" parent="#(parent)#" order="desc" value="foo" key="bar">		          <p>Item #(bar)#/#(total)#</p>		          <ul>		          <li>#(bar)#</li>		          <li>#(foo.GetAt(bar))#</li>		          </ul>		          </custom:rg:parse:delim:string>
 
 ---
 
