@@ -57,8 +57,8 @@ For us DTI customers, there's a couple ways (that I can think of) to install thi
 ### RULE copy/paste:
 
 1. "File" >> "New..." and choose "Caché Server Page" from the "CSP File" tab.
-1. Copy/paste the **RAW** contents of `custom.rg.Delim.csr` into this new file.
-1. Save this file as `custom.rg.Delim.csr` to the "CSP Files" >> `/csp/cms/customrules` package/folder/location.
+1. Copy/paste the **RAW** contents of `custom.rg.DelimRule.csr` into this new file.
+1. Save this file as `custom.rg.DelimRule.csr` to the "CSP Files" >> `/csp/cms/customrules` package/folder/location.
 1. Compile.
 
 ### RULE/class import local:
@@ -67,13 +67,13 @@ For us DTI customers, there's a couple ways (that I can think of) to install thi
 1. Open Studio.
 1. Change to the `CMS` namespace.
 1. "Tools" >> "Import Local...".
-1. Import `custom.rg.Delim.csr` and `custom.rg.Delim.xml` and check the compile box.
+1. Import `custom.rg.DelimRule.csr` and `custom.rg.Delim.xml` and check the compile box.
 
 ---
 
 #### NOTES
 
-Non-[DTI](http://www.dtint.com/) customers should remove these lines from `custom.rg.Delim.csr`:
+Non-[DTI](http://www.dtint.com/) customers should remove these lines from `custom.rg.DelimRule.csr`:
 
 1. Remove `dt.common.page.Rule, ` from:
 	```
@@ -105,9 +105,12 @@ Non-[DTI](http://www.dtint.com/) customers should remove these lines from `custo
 
 #### CHANGELOG
 
-* v2.0.0: 2013/06/26
-	* Second push to GitHub.
-	* Changed a bunch of stuff. :)
+* v2.0.0:
+	* 2013/06/27
+		* Renamed `custom.rg.Delim.csr` to `custom.rg.DelimRule.csr` and updated all references to the old name.
+	* 2013/06/26
+		* Second push to GitHub.
+		* Changed a bunch of stuff. :)
 * Pre-v2.0.0
 	* It's the first commit.
 

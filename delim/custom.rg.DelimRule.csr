@@ -1,10 +1,10 @@
-<csr:rule name="custom.rg.Delim" match="custom:rg:delim">
+<csr:rule name="custom.rg.DelimRule" match="custom:rg:delim">
 	
 	<csr:class super="dt.common.page.Rule, %CSP.RuleBlock" />
 	
 	<csr:description>
 		
-		<h1>custom.rg.Delim</h1>
+		<h1>custom.rg.DelimRule</h1>
 		
 		<ul>
 			<li>Version: v2.0.0</li>
