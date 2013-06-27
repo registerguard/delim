@@ -1,0 +1,611 @@
+<!doctype html>
+<html>
+
+<head>
+	
+	<meta charset="utf-8">
+	
+	<title>Delim examples</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<style>
+		<!--
+			
+			/*! normalize.css v2.1.2 | MIT License | git.io/normalize */
+			article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em;margin:.67em 0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}mark{background:#ff0;color:#000}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em}pre{white-space:pre-wrap}q{quotes:"\201C" "\201D" "\2018" "\2019"}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:0}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}button,input{line-height:normal}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}
+			
+			html { color: #000; }
+			body {
+				font-family: Arial, sans-serif; /* Serif: Cambria, Georgia, serif; */
+				font-size: 100.01%;
+				line-height: 1.4;
+			}
+			
+			h1 { margin-top: 0; }
+			
+			section {
+				border: 1px solid #ccc;
+				margin: 20px 0;
+				padding: 20px;
+			}
+			
+			hr {
+				border: 0;
+				border-top: 1px solid #ccc;
+				height: 1px;
+				margin: 20px 0 11px;
+				padding: 0;
+			}
+			
+			/* Responsive images: */
+			img {
+				width: auto\9; /* IE */
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+				vertical-align: middle;
+				border: 0;
+				-ms-interpolation-mode: bicubic;
+				margin-bottom: 5px;
+			}
+			
+			#container {
+				margin: 0 20px;
+				padding: 20px 0;
+			}
+			
+			.gone { display: none !important; visibility: hidden; }
+			
+			/* Wrap multimedia elements with: */
+			.mm {
+				height: 0;
+				padding-bottom: 56.25%; /* 16x9 ratio */
+				position: relative;
+				overflow: hidden;
+				margin: 0 0 10px;
+			}
+				.mm iframe,
+				.mm object,
+				.mm embed {
+					width: 100% !important;
+					height: 100% !important;
+					position: absolute;
+					top: 0;
+					left: 0;
+				}
+				/* Slideshows: */
+				.ss { padding-bottom: 66.666%; } /* 3x2 ratio */
+			
+		-->
+	</style>
+	
+</head>
+<body>
+	
+	<div id="container">
+		
+		<h1><a href="https://github.com/registerguard/delim">Delim</a> examples</h1>
+		
+		<section>
+			
+			<h1>Basic usage</h1>
+			
+			
+			
+			<ul>
+				
+				
+					
+					<li>Parent count: 1. Parent total: 5. Parent key: 1. Children count: 1.</li>
+					
+					<li>Item: 'First'</li>
+					
+				
+					
+					<li>Parent count: 2. Parent total: 5. Parent key: 2. Children count: 1.</li>
+					
+					<li>Item: 'Second'</li>
+					
+				
+					
+					<li>Parent count: 3. Parent total: 5. Parent key: 3. Children count: 1.</li>
+					
+					<li>Item: 'Third'</li>
+					
+				
+					
+					<li>Parent count: 4. Parent total: 5. Parent key: 4. Children count: 1.</li>
+					
+					<li>Item: 'Fourth'</li>
+					
+				
+					
+					<li>Parent count: 5. Parent total: 5. Parent key: 5. Children count: 1.</li>
+					
+					<li>Item: 'Fifth'</li>
+					
+				
+				
+			</ul>
+			
+			
+			
+		</section>
+		
+		<hr class="gone">
+		
+		<section>
+			
+			<h1>All attributes</h1>
+			
+			
+			
+			<ul>
+				
+				
+					
+					<li>
+						
+						Parent count: 1. Parent total: 3. Parent key: 3. Children count: 3. Object: 4@%Library.ArrayOfDataTypes.
+						
+						<ul>
+							
+							
+								
+								<li>Ducks</li>
+								
+							
+								
+								<li>Geese</li>
+								
+							
+								
+								<li>Cows</li>
+								
+							
+							
+							
+							
+						</ul>
+					
+					</li>
+					
+				
+					
+					<li>
+						
+						Parent count: 2. Parent total: 3. Parent key: 2. Children count: 27. Object: 4@%Library.ArrayOfDataTypes.
+						
+						<ul>
+							
+							
+								
+								<li>A</li>
+								
+							
+								
+								<li>B</li>
+								
+							
+								
+								<li>C</li>
+								
+							
+								
+								<li>D</li>
+								
+							
+								
+								<li>E</li>
+								
+							
+								
+								<li>F</li>
+								
+							
+								
+								<li>G</li>
+								
+							
+								
+								<li>H</li>
+								
+							
+								
+								<li>I</li>
+								
+							
+								
+								<li>J</li>
+								
+							
+								
+								<li>K</li>
+								
+							
+								
+								<li>L</li>
+								
+							
+								
+								<li>M</li>
+								
+							
+								
+								<li>N</li>
+								
+							
+								
+								<li>O</li>
+								
+							
+								
+								<li>P</li>
+								
+							
+								
+								<li>Q</li>
+								
+							
+								
+								<li>R</li>
+								
+							
+								
+								<li>S</li>
+								
+							
+								
+								<li>T</li>
+								
+							
+								
+								<li>U</li>
+								
+							
+								
+								<li>V</li>
+								
+							
+								
+								<li>W</li>
+								
+							
+								
+								<li>X</li>
+								
+							
+								
+								<li>Y</li>
+								
+							
+								
+								<li>and</li>
+								
+							
+								
+								<li>Z</li>
+								
+							
+							
+							
+							
+						</ul>
+					
+					</li>
+					
+				
+					
+					<li>
+						
+						Parent count: 3. Parent total: 3. Parent key: 1. Children count: 4. Object: 4@%Library.ArrayOfDataTypes.
+						
+						<ul>
+							
+							
+								
+								<li>1</li>
+								
+							
+								
+								<li>2</li>
+								
+							
+								
+								<li>3</li>
+								
+							
+								
+								<li>4</li>
+								
+							
+							
+							
+							
+						</ul>
+					
+					</li>
+					
+				
+				
+			</ul>
+			
+			
+			
+		</section>
+		
+		<hr class="gone">
+		
+		<section>
+			
+			<h1>Maps</h1>
+			
+			
+			
+			
+				
+				
+				
+				<ul>
+					
+					<li>Parent count: 1. Parent total: 2. Parent key: 1. Children count: 4.</li>
+					
+					
+						
+						
+						
+						<li>Lattitude: '44.052069'</li>
+						
+					
+					
+					
+						
+						
+						
+						<li>Longitude: '-123.086754'</li>
+						
+					
+					
+					
+						
+						
+						
+						<li>Title: 'Eugene, Oregon'</li>
+						
+					
+					
+					
+						
+						
+						
+						<li>Description: 'Eugene is the third largest city in Oregon.'</li>
+						
+					
+					
+				</ul>
+				
+				<a href="http://maps.google.com/?q=44.052069,-123.086754&amp;z=13">
+					<img src="http://maps.googleapis.com/maps/api/staticmap?center=44.052069,-123.086754&amp;zoom=13&amp;size=400x300&amp;maptype=roadmap&amp;markers=44.052069,-123.086754&amp;sensor=false&amp;visual_refresh=true" alt="Eugene, Oregon: Eugene is the third largest city in Oregon.">
+				</a>
+				
+				
+					<hr>
+				
+				
+				
+				
+			
+				
+				
+				
+				<ul>
+					
+					<li>Parent count: 2. Parent total: 2. Parent key: 2. Children count: 4.</li>
+					
+					
+						
+						
+						
+						<li>Lattitude: '44.085777'</li>
+						
+					
+					
+					
+						
+						
+						
+						<li>Longitude: '-123.052457'</li>
+						
+					
+					
+					
+						
+						
+						
+						<li>Title: 'The Register-Guard'</li>
+						
+					
+					
+					
+						
+						
+						
+						<li>Description: 'Eugene's local newspaper.'</li>
+						
+					
+					
+				</ul>
+				
+				<a href="http://maps.google.com/?q=44.085777,-123.052457&amp;z=13">
+					<img src="http://maps.googleapis.com/maps/api/staticmap?center=44.085777,-123.052457&amp;zoom=13&amp;size=400x300&amp;maptype=roadmap&amp;markers=44.085777,-123.052457&amp;sensor=false&amp;visual_refresh=true" alt="The Register-Guard: Eugene's local newspaper.">
+				</a>
+				
+				
+				
+				
+				
+			
+			
+			
+			
+		</section>
+		
+		<hr class="gone">
+		
+		<section>
+			
+			<h1>Videos</h1>
+			
+			
+			
+			
+				
+				<p>Parent count: 1. Parent total: 3. Parent key: 1. Children count: 2.</p>
+				
+				<hr>
+				
+				
+					
+					
+					
+					
+						
+						<figure>
+							
+							
+								
+								
+								
+								<div class="mm"><iframe width="300" height="169" src="http://www.youtube.com/embed/JJI4WBSttA4?hd=1" frameborder="0" allowfullscreen></iframe></div>
+								
+							
+							
+							
+								
+								<figcaption>
+									
+									<p>Caption: First video</p>
+									
+								</figcaption>
+								
+							
+							
+						</figure>
+						
+					
+					
+					
+						<hr>
+					
+					
+					
+					
+				
+				
+			
+				
+				<p>Parent count: 2. Parent total: 3. Parent key: 2. Children count: 2.</p>
+				
+				<hr>
+				
+				
+					
+					
+					
+					
+						
+						<figure>
+							
+							<div class="mm"><iframe src="http://player.vimeo.com/video/68047477" width="300" height="169" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+							
+							
+								
+								<figcaption>
+									
+									<p>Caption: Second video</p>
+									
+								</figcaption>
+								
+							
+							
+						</figure>
+						
+					
+					
+					
+						<hr>
+					
+					
+					
+					
+				
+				
+			
+				
+				<p>Parent count: 3. Parent total: 3. Parent key: 3. Children count: 1.</p>
+				
+				<hr>
+				
+				
+					
+					
+					
+					
+						
+						<figure>
+							
+							
+								
+								
+								
+								<div class="mm"><iframe width="300" height="169" src="http://www.youtube.com/embed/wMxmWH5lR3o?hd=1" frameborder="0" allowfullscreen></iframe></div>
+								
+							
+							
+							
+							
+						</figure>
+						
+					
+					
+					
+					
+					
+					
+				
+				
+			
+			
+			
+			
+		</section>
+		
+		<hr class="gone">
+		
+		<section>
+			
+			<h1>Debug:</h1>
+			
+			
+<pre>
+%CSPsc=1
+%ROWCOUNT=1
+%mmmu1=&quot;&quot;
+%mmmu2=&quot;&quot;
+%request=&lt;OBJECT REFERENCE&gt;[1@%CSP.Request]
+%response=&lt;OBJECT REFERENCE&gt;[2@%CSP.Response]
+%session=&lt;OBJECT REFERENCE&gt;[3@%CSP.Session]
+Timers=0
+currIO=&quot;UTF8&quot;
+gRequestId=116998767
+ruleError=&quot;&quot;</pre>
+			
+		</section>
+		
+	</div> <!-- /#container -->
+	
+</body>
+</html>
