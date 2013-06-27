@@ -75,24 +75,24 @@ For us DTI customers, there's a couple ways (that I can think of) to install thi
 
 Non-[DTI](http://www.dtint.com/) customers should remove these lines from `custom.rg.Delim.csr`:
 
-1. Remove `dt.common.page.Rule` from:
-```
-<csr:class super="dt.common.page.Rule, %CSP.RuleBlock" />
-```
+1. Remove `dt.common.page.Rule, ` from:
+	```
+	<csr:class super="dt.common.page.Rule, %CSP.RuleBlock" />
+	```
 
 1. 
-```
-<script language="cache" runat="compiler">
-	do ##this.RenderDTStartTag()
-</script>
-```
+	```
+	<script language="cache" runat="compiler">
+		do ##this.RenderDTStartTag()
+	</script>
+	```
 
 1. 
-```
-<script language="cache" runat="compiler">
-	do ##this.RenderDTEndTag()
-</script>
-```
+	```
+	<script language="cache" runat="compiler">
+		do ##this.RenderDTEndTag()
+	</script>
+	```
 
 ---
 
