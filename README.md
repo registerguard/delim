@@ -103,6 +103,7 @@ Non-[DTI](http://www.dtint.com/) customers should remove these lines from `custo
 * [Trim whitespace around items in a delimited string](https://groups.google.com/d/topic/intersystems-public-cache/8iJV1p3kwD8/discussion)
 * [Multi-line string variable?](https://groups.google.com/d/topic/intersystems-public-cache/iG3YnU11igA/discussion)
 * [Trucate and `$number`?](https://groups.google.com/d/topic/intersystems-public-cache/gFvXTNjgq7o/discussion)
+* [[2009.1] $list questions: Best/optimal ways to remove empty list items and how to reverse?](https://groups.google.com/d/topic/intersystems-public-cache/_c00b_zItqE/discussion)
 
 ---
 

@@ -191,10 +191,13 @@
 				
 				new string
 				
-				// Pretend this string came from your database and the ASCII 10 is an actual line feed. :)
-				set string = "44.052069 | -123.086754 | Eugene, Oregon | Eugene is the third largest city in Oregon." _ 
-							 $char(10) _ 
-							 "44.085777 | -123.052457 | The Register-Guard | Eugene's local newspaper."
+				set string = $listtostring(
+					$listbuild(
+						"44.052069 | -123.086754 | Eugene, Oregon | Eugene is the third largest city in Oregon.",
+						"44.085777 | -123.052457 | The Register-Guard | Eugene's local newspaper."
+					),
+					$char(10)
+				)
 				
 			</script>
 			
@@ -276,12 +279,14 @@
 				
 				new string
 				
-				// Pretend this string came from your database and the ASCII 10 is an actual line feed. :)
-				set string = "http://www.youtube.com/watch?v=JJI4WBSttA4 | First video" _ 
-				             $char(10) _ 
-				             "http://vimeo.com/68047477 | Second video" _ 
-				             $char(10) _ 
-				             "http://www.youtube.com/watch?v=wMxmWH5lR3o"
+				set string = $listtostring(
+					$listbuild(
+						"http://www.youtube.com/watch?v=JJI4WBSttA4 | First video",
+						"http://vimeo.com/68047477 | Second video",
+						"http://www.youtube.com/watch?v=wMxmWH5lR3o"
+					),
+					$char(10)
+				)
 				
 			</script>
 			
