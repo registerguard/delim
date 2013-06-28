@@ -1,6 +1,6 @@
 # Delim
 
-The `<custom:rg:delim>` RULE (a.k.a tag) parses a delimited string and returns an iterable [`%ArrayOfDataTypes`](http://docs.intersystems.com/cache20091/csp/documatic/%25CSP.Documatic.cls?APP=1&CLASSNAME=%25Library.ArrayOfDataTypes) object.
+**The `<custom:rg:delim>` RULE (a.k.a tag) parses a delimited string and returns an iterable [`%ArrayOfDataTypes`](http://docs.intersystems.com/cache20091/csp/documatic/%25CSP.Documatic.cls?APP=1&CLASSNAME=%25Library.ArrayOfDataTypes) object.**
 
 Each object has been assigned to the attribute `item` which you can access in each iteration of the tag's loop.
 
@@ -12,9 +12,10 @@ Each object has been assigned to the attribute `item` which you can access in ea
 
 **`<custom:rg:get:pics>` attributes:**
 
-1. `string`: String with at least one delimiter (required).
-1. `parent`: Delimiter type; the default is a `|` (pipe).
+1. `string`: String to parse (required).
+1. `parent`: Parent delimiter; the default is a `|` (pipe).
 1. `child`: Optional child delimiter.
+1. `limit`: Limit the number of parsed items returned; the default is `0` (no limit).
 1. `reverse`: Use to reverse the direction of the loop; this attribute does not require a value.
 1. `key`: The loop key variable name; the default name is `key`.
 1. `count`: Local loop counter variable name; the default name is `count`.
@@ -27,8 +28,11 @@ Each object has been assigned to the attribute `item` which you can access in ea
 **`##class(custom.rg.Delim).parse()` parameters:**
 
 1. `string`: String to parse (required).
-1. `parentDelim`: Child delimiter.
-1. `childDelim`: Parent delimiter.
+1. `parent`: Parent delimiter; the default is a `|` (pipe).
+1. `child`: Optional child delimiter.
+1. `limit`: Limit the number of parsed items returned; the default is `0` (no limit).
+
+**Returns:** Parsed string as iterable `%ArrayOfDataTypes` object(s).
 
 ---
 
@@ -42,9 +46,7 @@ Check out [`delim.csp`](https://github.com/registerguard/delim/blob/master/delim
 
 Of course, this goes without saying, but never install "stranger" code on your production system. **Always use your test server to play**!
 
-With that said ...
-
-For us DTI customers, there's a couple ways (that I can think of) to install this code:
+With that said, there's a couple ways (that I can think of) to install this code:
 
 ### Class copy/paste:
 
@@ -100,11 +102,20 @@ Non-[DTI](http://www.dtint.com/) customers should remove these lines from `custo
 
 * [Trim whitespace around items in a delimited string](https://groups.google.com/d/topic/intersystems-public-cache/8iJV1p3kwD8/discussion)
 * [Multi-line string variable?](https://groups.google.com/d/topic/intersystems-public-cache/iG3YnU11igA/discussion)
+* [Trucate and `$number`?](https://groups.google.com/d/topic/intersystems-public-cache/gFvXTNjgq7o/discussion)
 
 ---
 
 #### CHANGELOG
 
+* v2.0.1
+	* 2013/06/27
+		* Updated/normalized docblocks.
+		* Changed a few argument names.
+		* Cleaned up code.
+		* Added a `limit` attribute/argument.
+		* Fixed a few logic errors.
+		* Explored my options for limiting/reversing/forwarding items and loops; not enough time to finalize code and will have to revisit. See issue [#2](https://github.com/registerguard/delim/issues/2) & [#3](https://github.com/registerguard/delim/issues/2).
 * v2.0.0:
 	* 2013/06/27
 		* Renamed `custom.rg.Delim.csr` to `custom.rg.DelimRule.csr` and updated all references to the old name.

@@ -111,11 +111,25 @@
 			
 			<h1>Basic usage</h1>
 			
-			#[ new string set string = "First ^ Second ^ Third ^ Fourth ^ Fifth ^    ^^^^^" ]#
+			#[ new string set string = "First | Second | Third | Fourth | Fifth |    ||||||||||||||||||||||" ]#
 			
 			<ul>
 				
-				<custom:rg:delim string="#(string)#" parent="^">
+				<custom:rg:delim string="#(string)#">
+					
+					<li>Parent count: #(count)#. Parent total: #(total)#. Parent key: #(key)#. Children count: #(item.Count())#.</li>
+					
+					<li>Item: '#(item.GetNext())#'</li>
+					
+				</custom:rg:delim>
+				
+			</ul>
+			
+			<h2>Only two items, reversed</h2>
+			
+			<ul>
+				
+				<custom:rg:delim string="#(string)#" limit="2" reverse>
 					
 					<li>Parent count: #(count)#. Parent total: #(total)#. Parent key: #(key)#. Children count: #(item.Count())#.</li>
 					
@@ -139,7 +153,7 @@
 			
 			<ul>
 				
-				<custom:rg:delim string="#(string)#" parent="," child="|" flip key="k" count="c" item="i" total="t" obj="o">
+				<custom:rg:delim string="#(string)#" parent="," child="|" reverse key="k" count="c" item="i" total="t" obj="o">
 					
 					<li>
 						

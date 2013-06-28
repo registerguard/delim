@@ -1,73 +1,69 @@
-/// custom.rg.Delim
+/// custom.rg.Delim.cls
 /// See <code>custom.rg.Delim.csr</code> for related code.
-///
+/// 
 /// @docs https://github.com/registerguard/delim
 /// @copyright Copyright (c) 2013 Micky Hulse/The Register-Guard.
 /// @license Released under the Apache License, Version 2.0.
 /// http://www.apache.org/licenses/LICENSE-2.0
-/// @version 2.0.0
+/// @version 2.0.1
 /// @created Thursday, February 5, 2009
-/// @modified Wednesday, June 26, 2013
+/// @modified Wednesday, June 27, 2013
 Class custom.rg.Delim Extends %RegisteredObject
 {
 
 /// @param string { %String } String to parse (required).
-/// @param child { %String } Child delimiter.
-/// @param parent { %String } Parent delimiter.
-/// @return { %ArrayOfDataTypes } Parsed string as iterable objects.
+/// @param parent { %String } Parent delimiter; the default is a `|` (pipe).
+/// @param child { %String } Optional child delimiter.
+/// @param limit { %Integer } Limit the number of parsed items returned; the default is `0` (no limit).
+/// @return { %ArrayOfDataTypes } Parsed string as iterable `%ArrayOfDataTypes` object(s).
 ClassMethod parse(
 	string As %String = "",
-	parentDelim As %String = "|",
-	childDelim As %String = "") As %ArrayOfDataTypes
+	parent As %String = "|",
+	child As %String = "",
+	limit As %Integer = 0) As %ArrayOfDataTypes
 {
 	
-	; Declare and initialize:
-	set (parentList, childList) = -1 // Note: $listvalid will validate an null string as a valid list.
-	set (i, x, parentCount, childCount) = 0
-	set (parent, child) = ""
+	; Declare & initialze return value:
 	set return = ##class(%ArrayOfDataTypes).%New()
 	
 	; Check required arguments:
 	if ($length(string)) {
 		
 		; Convert delimited parent string into a $list:
-		set parentList = ..lister(string, parentDelim)
+		set plist = ..lister(string, parent)
 		
 		; Validate our parent $list:
-		if ($listvalid(parentList)) {
+		if ($listvalid(plist)) {
 			
-			; Count our parents:
-			set parentCount = $listlength(parentList)
+			; Make a whole number integer (or "0" if invalid):
+			set limit = (limit \ 1) // https://groups.google.com/d/topic/intersystems-public-cache/gFvXTNjgq7o/discussion
 			
-			; At least one?
-			for i=1:1:parentCount { // ControlVariable = StartValue:IncrementAmount:EndValue
+			; Limit the number of parents, or get all:
+			for i=1:1:$select(limit:limit, 1:$listlength(plist)) { // i=start:increment:end
 				
 				; Ok, so make sure the list has data:
-				if ($listdata(parentList, i)) {
+				if ($listdata(plist, i)) {
 					
 					; Initialize:
-					set child = ##class(%ArrayOfDataTypes).%New()
+					set data = ##class(%ArrayOfDataTypes).%New()
 					
 					; Is there a child delimiter?
-					if ($length(childDelim)) {
+					if ($length(child)) {
 						
 						; Convert delimited child string into a $list:
-						set childList = ..lister($list(parentList, i), childDelim)
+						set clist = ..lister($list(plist, i), child)
 						
 						; Validate our child $list:
-						if ($listvalid(childList)) {
-							
-							; Count our children:
-							set childCount = $listlength(childList)
+						if ($listvalid(clist)) {
 							
 							; At least one?
-							for x=1:1:childCount {
+							for x=1:1:$listlength(clist) {
 								
 								; Ok, so make sure the list has data:
-								if ($listdata(childList, x)) {
+								if ($listdata(clist, x)) {
 									
 									; Add item to master list:
-									do child.SetAt($list(childList, x), x)
+									do data.SetAt($list(clist, x), x)
 									
 								}
 								
@@ -78,12 +74,12 @@ ClassMethod parse(
 					} else {
 						
 						; Add item to master list:
-						do child.SetAt($list(parentList, i), i)
+						do data.SetAt($list(plist, i), i)
 						
 					}
 					
 					; Add item to master list:
-					do return.SetAt(child, i)
+					do return.SetAt(data, i)
 					
 				}
 				
@@ -105,16 +101,16 @@ ClassMethod parse(
 /// @see https://groups.google.com/d/topic/intersystems-public-cache/8iJV1p3kwD8/discussion
 /// @see https://gist.github.com/4008569
 ///
-/// @param list { string } Required. Comma delimited list.
-/// @param delim { string } Required. Delimiter that separates list items.
+/// @param string { %String } String to parse (required).
+/// @param delim { %String } Delimiter; the default is a `|` (pipe).
 /// @private
 ClassMethod lister(
 	string As %String = "",
-	delim As %String = "") As %List [ Private ]
+	delim As %String = "|") As %List [ Private ]
 {
 	
-	; Declare & initialze:
-	set (return, temp) = ""
+	; Declare & initialze return value:
+	set return = ""
 	
 	; Check required arguments:
 	if ($length(string) && $length(delim)) {
